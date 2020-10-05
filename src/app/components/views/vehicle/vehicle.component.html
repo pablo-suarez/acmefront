@@ -1,0 +1,46 @@
+<div *ngIf="!only">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Placa</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Color</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehicle of vehicles">
+        <td>{{vehicle.plate}}</td>
+        <td>{{vehicle.mark}}</td>
+        <td>{{vehicle.color}}</td>
+        <td>{{vehicle.owner.name}}</td>
+        <td>{{vehicle.driver.name}}</td>
+        <td>{{vehicle.kind_vehicle.name}}</td>
+        <td><a class="btn btn-info btn-sm dis" routerLink="/vehicle/{{vehicle.id}}">Ver Informe</a>
+            <a class="btn btn-primary btn-sm dis" routerLink="/formvehicle/{{vehicle.id}}">Editar</a>
+            <a class="btn btn-primary btn-sm btn-danger dis" (click)="delete(vehicle.id)">Eliminar</a>
+        </td>
+      </tr>
+  
+    </tbody>
+  </table>
+  <div class="btncreate">
+    <button class="btn btn-success" routerLink="/formvehicle/">Registrar Vehiculo</button>
+  </div>
+</div>
+<div *ngIf="only">
+  <h1>Informe del Vehiculo</h1>
+  <div class="prop">Placa del Vehículo:</div>
+<p>{{vehicle.plate}}</p>
+<div class="prop">Marca del Vehículo:</div>
+<p>{{vehicle.mark}}</p>
+<div class="prop">Nombre del Conductor:</div>
+<p>{{vehicle.driver.name}} {{vehicle.driver.lastname}}</p>
+<div class="prop">Nombre del Propietario:</div>
+<p>{{vehicle.owner.name}} {{vehicle.owner.lastname}}</p>
+
+  
+</div>

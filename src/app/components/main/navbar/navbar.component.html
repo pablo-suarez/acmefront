@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ACME</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item" *ngFor="let ruta of rutas">
+          <a [routerLink]="ruta.path" [routerLinkActive]="'is-active'" [routerLinkActiveOptions]="{exact:true}" class="nav-link" routerLink="/home">{{ruta.name}}<span class="sr-only"></span></a>
+        </li>
+  
+  
+  
+      </ul>
+  
+    </div>
+  </nav>

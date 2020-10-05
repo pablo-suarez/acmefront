@@ -1,0 +1,18 @@
+<h2>Crear Conductor</h2>
+<div>
+  <div class="form-group">
+    <label for="dni">DNI</label>
+    <input [(ngModel)]="driver.dni" type="text" class="form-control" id="dni" placeholder="Ingresar DNI" required>
+    <label for="description">Nombre</label>
+    <input [(ngModel)]="driver.name" type="text" class="form-control" id="description" placeholder="Ingresar Nombre" required>
+    <label for="lastname">Apellidos</label>
+    <input [(ngModel)]="driver.lastname" type="text" class="form-control" id="lastname" placeholder="Ingresar Apellidos" required>
+    <label for="address">Direccion</label>
+    <input [(ngModel)]="driver.address" type="text" class="form-control" id="address" placeholder="Ingresar Dirección" required>
+    <label for="telephone">Teléfono</label>
+    <input [(ngModel)]="driver.telephone" type="text" class="form-control" id="telephone" placeholder="Ingresar Teléfono" required>
+    <label for="city">Ciudad</label>
+    <input [(ngModel)]="driver.city" type="text" class="form-control" id="city" placeholder="Ingresar Ciudad" required>
+  </div>
+  <button (click)="saveDriver()" type="submit" class="btn btn-primary">Guardar</button>
+</div>

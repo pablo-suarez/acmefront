@@ -1,0 +1,18 @@
+<h2>Crear Propietario</h2>
+<div>
+  <div class="form-group">
+    <label for="dni">DNI</label>
+    <input [(ngModel)]="owner.dni" type="text" class="form-control" id="dni" placeholder="Ingresar DNI">
+    <label for="description">Nombre</label>
+    <input [(ngModel)]="owner.name" type="text" class="form-control" id="description" placeholder="Ingresar Nombre">
+    <label for="lastname">Apellidos</label>
+    <input [(ngModel)]="owner.lastname" type="text" class="form-control" id="lastname" placeholder="Ingresar Apellidos">
+    <label for="address">Direccion</label>
+    <input [(ngModel)]="owner.address" type="text" class="form-control" id="address" placeholder="Ingresar Dirección">
+    <label for="telephone">Teléfono</label>
+    <input [(ngModel)]="owner.telephone" type="text" class="form-control" id="telephone" placeholder="Ingresar Teléfono">
+    <label for="city">Ciudad</label>
+    <input [(ngModel)]="owner.city" type="text" class="form-control" id="city" placeholder="Ingresar Ciudad">
+  </div>
+  <button (click)="saveOwner()" type="submit" class="btn btn-primary">Guardar</button>
+</div>
