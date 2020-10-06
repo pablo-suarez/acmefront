@@ -16,8 +16,8 @@
         <td>{{vehicle.plate}}</td>
         <td>{{vehicle.mark}}</td>
         <td>{{vehicle.color}}</td>
-        <td>{{vehicle.owner.name}}</td>
-        <td>{{vehicle.driver.name}}</td>
+        <td>{{vehicle.owner.name}} {{vehicle.owner.lastname}}</td>
+        <td>{{vehicle.driver.name}} {{vehicle.driver.lastname}}</td>
         <td>{{vehicle.kind_vehicle.name}}</td>
         <td><a class="btn btn-info btn-sm dis" routerLink="/vehicle/{{vehicle.id}}">Ver Informe</a>
           <a class="btn btn-primary btn-sm dis" routerLink="/formvehicle/{{vehicle.id}}">Editar</a>
@@ -38,9 +38,9 @@
 <div class="prop">Marca del Vehículo:</div>
 <p>{{vehicle.mark}}</p>
 <div class="prop">Nombre del Conductor:</div>
-<p>{{vehicle.driver.name}}</p>
+<p>{{vehicle.driver.name}} {{vehicle.driver.lastname}}</p>
 <div class="prop">Nombre del Propietario:</div>
-<p>{{vehicle.owner.name}}</p>
+<p>{{vehicle.owner.name}} {{vehicle.owner.lastname}}</p>
 
   
 </div>
