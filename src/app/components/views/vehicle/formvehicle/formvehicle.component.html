@@ -1,27 +1,80 @@
-<h2>Crear Vehiculo</h2>
-<div>
+<h2 style="color: #243c64">Crear Vehiculo</h2>
+<form #vehicleForm="ngForm" (ngSubmit)="saveVehicle()">
   <div class="form-group">
     <label for="plate">Placa</label>
-    <input [(ngModel)]="vehicle.plate" type="text" class="form-control" id="plate" placeholder="Ingresar Placa">
+    <input
+      [(ngModel)]="vehicle.plate"
+      type="text"
+      name="plate"
+      class="form-control"
+      id="plate"
+      placeholder="Ingresar Placa"
+    />
     <label for="mark">Marca</label>
-    <input [(ngModel)]="vehicle.mark" type="text" class="form-control" id="mark" placeholder="Ingresar Marca">
+    <input
+      [(ngModel)]="vehicle.mark"
+      type="text"
+      name="mark"
+      class="form-control"
+      id="mark"
+      placeholder="Ingresar Marca"
+    />
     <label for="color">Color</label>
-    <input [(ngModel)]="vehicle.color" type="text" class="form-control" id="color" placeholder="Ingresar Color">
+    <input
+      [(ngModel)]="vehicle.color"
+      type="text"
+      name="color"
+      class="form-control"
+      id="color"
+      placeholder="Ingresar Color"
+    />
     <label for="genre">Propietario</label>
-    <select class="form-control" id="owner_id" name="owner_id"  [(ngModel)]="vehicle.owner_id" required>
-        <option *ngFor="let owner of owners" [ngValue]="owner.id">{{owner.name}} {{owner.lastname}}</option>
+    <select
+      class="form-control"
+      id="owner_id"
+      name="owner_id"
+      [(ngModel)]="vehicle.owner_id"
+      required
+    >
+      <option *ngFor="let owner of owners" [ngValue]="owner.id">
+        {{ owner.name }} {{ owner.lastname }}
+      </option>
     </select>
-    <label for="genre">Conductor</label>
-    <select class="form-control" id="driver_id" name="driver_id"  [(ngModel)]="vehicle.driver_id" required>
-        <option *ngFor="let driver of drivers" [ngValue]="driver.id">{{driver.name}} {{driver.lastname}}</option>
+    <label for="driver_id">Conductor</label>
+    <select
+      class="form-control"
+      id="driver_id"
+      name="driver_id"
+      [(ngModel)]="vehicle.driver_id"
+      required
+    >
+      <option *ngFor="let driver of drivers" [ngValue]="driver.id">
+        {{ driver.name }} {{ driver.lastname }}
+      </option>
     </select>
-    <label for="genre">Tipo de Vehiculo</label>
-    <select class="form-control" id="kind_vehicle_id" name="kind_vehicle_id"  [(ngModel)]="vehicle.kind_vehicle_id" required>
-        <option *ngFor="let kindvehicle of kindVehicles" [ngValue]="kindvehicle.id">{{kindvehicle.name}}</option>
+    <label for="kind_vehicle_id">Tipo de Vehiculo</label>
+    <select
+      class="form-control"
+      id="kind_vehicle_id"
+      name="kind_vehicle_id"
+      [(ngModel)]="vehicle.kind_vehicle_id"
+      required
+    >
+      <option
+        *ngFor="let kindvehicle of kindVehicles"
+        [ngValue]="kindvehicle.id"
+      >
+        {{ kindvehicle.name }}
+      </option>
     </select>
-
-
   </div>
 
-  <button (click)="saveVehicle()" type="submit" class="btn btn-primary">Guardar</button>
-</div>
+  <button
+    type="submit"
+    block="true"
+    class="btn btn-primary"
+    [disabled]="!vehicleForm.valid"
+  >
+    Guardar
+  </button>
+</form>

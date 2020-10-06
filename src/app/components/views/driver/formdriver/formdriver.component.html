@@ -1,18 +1,74 @@
-<h2>Crear Conductor</h2>
-<div>
+<h2 style="color: #243c64">Crear Conductor</h2>
+<form #driverForm="ngForm" (ngSubmit)="saveDriver()">
   <div class="form-group">
     <label for="dni">DNI</label>
-    <input [(ngModel)]="driver.dni" type="text" class="form-control" id="dni" placeholder="Ingresar DNI" required>
-    <label for="description">Nombre</label>
-    <input [(ngModel)]="driver.name" type="text" class="form-control" id="description" placeholder="Ingresar Nombre" required>
+    <input
+      [(ngModel)]="driver.dni"
+      type="text"
+      name="dni"
+      class="form-control"
+      id="dni"
+      placeholder="Ingresar DNI"
+      required
+    />
+    <label for="name">Nombre</label>
+    <input
+      [(ngModel)]="driver.name"
+      type="text"
+      name="name"
+      class="form-control"
+      id="name"
+      placeholder="Ingresar Nombre"
+      required
+    />
     <label for="lastname">Apellidos</label>
-    <input [(ngModel)]="driver.lastname" type="text" class="form-control" id="lastname" placeholder="Ingresar Apellidos" required>
+    <input
+      [(ngModel)]="driver.lastname"
+      type="text"
+      name="lastname"
+      class="form-control"
+      id="lastname"
+      placeholder="Ingresar Apellidos"
+      required
+    />
     <label for="address">Direccion</label>
-    <input [(ngModel)]="driver.address" type="text" class="form-control" id="address" placeholder="Ingresar Dirección" required>
+    <input
+      [(ngModel)]="driver.address"
+      type="text"
+      name="address"
+      class="form-control"
+      id="address"
+      placeholder="Ingresar Dirección"
+      required
+    />
     <label for="telephone">Teléfono</label>
-    <input [(ngModel)]="driver.telephone" type="text" class="form-control" id="telephone" placeholder="Ingresar Teléfono" required>
+    <input
+      [(ngModel)]="driver.telephone"
+      type="text"
+      name="telephone"
+      class="form-control"
+      id="telephone"
+      placeholder="Ingresar Teléfono"
+      required
+    />
     <label for="city">Ciudad</label>
-    <input [(ngModel)]="driver.city" type="text" class="form-control" id="city" placeholder="Ingresar Ciudad" required>
+    <input
+      [(ngModel)]="driver.city"
+      type="text"
+      name="city"
+      class="form-control"
+      id="city"
+      placeholder="Ingresar Ciudad"
+      required
+    />
+    <br />
+    <button
+      type="submit"
+      block="true"
+      class="btn btn-primary"
+      [disabled]="!driverForm.valid"
+    >
+      Guardar
+    </button>
   </div>
-  <button (click)="saveDriver()" type="submit" class="btn btn-primary">Guardar</button>
-</div>
+</form>

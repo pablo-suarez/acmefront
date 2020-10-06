@@ -8,6 +8,9 @@ import { OwnerService } from 'src/app/services/owner.service';
   templateUrl: './formowner.component.html',
   styleUrls: ['./formowner.component.css']
 })
+/**
+ * Formulario para guardar o editar el propietario
+ */
 export class FormownerComponent implements OnInit {
 
   owner: Owner = {
@@ -18,40 +21,46 @@ export class FormownerComponent implements OnInit {
     telephone: null,
     city: null
   };
-  id:any;
+  /**
+   * @var id id del propietario a editar
+   * @editar validador si hay que editar o guardar
+   */
+  id: any;
   editar: boolean = false;
   owners: Owner[];
-  constructor(private ownerService: OwnerService, private activatedRoute:ActivatedRoute,
+  constructor(private ownerService: OwnerService, private activatedRoute: ActivatedRoute,
     private router: Router) {
     this.id = this.activatedRoute.snapshot.params['id'];
-    if(this.id){
+    if (this.id) {
       this.editar = true;
-      this.ownerService.get().subscribe((data: Owner[])=>{
-        this.owners=data;
-        this.owner=this.owners.find((m)=>{return m.id == this.id});
-        console.log(this.owner);
+      this.ownerService.get().subscribe((data: Owner[]) => {
+        this.owners = data;
+        this.owner = this.owners.find((m) => { return m.id == this.id });
       });
-    }else{
+    } else {
       this.editar = false;
     }
-   }
+  }
 
   ngOnInit() {
   }
-  saveOwner(){
-    if(this.editar){
-      this.ownerService.put(this.owner).subscribe((data)=>{
+  /**
+   * Función para editar o guardar el propietario
+   */
+  saveOwner() {
+    if (this.editar) {
+      this.ownerService.put(this.owner).subscribe((data) => {
         alert('Propietario Actualizado');
         this.router.navigateByUrl('/owner');
-      },(error)=>{
+      }, (error) => {
         console.log(error);
         alert('error!');
       });
-    }else{
-      this.ownerService.save(this.owner).subscribe((data)=>{
+    } else {
+      this.ownerService.save(this.owner).subscribe((data) => {
         alert('Propietario Guardado');
         this.router.navigateByUrl('/owner');
-      },(error)=>{
+      }, (error) => {
         console.log(error);
         alert('error!');
       });

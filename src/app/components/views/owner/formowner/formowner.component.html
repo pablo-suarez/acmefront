@@ -1,18 +1,74 @@
-<h2>Crear Propietario</h2>
-<div>
+<h2 style="color: #243c64">Crear Conductor</h2>
+<form #ownerForm="ngForm" (ngSubmit)="saveOwner()">
   <div class="form-group">
     <label for="dni">DNI</label>
-    <input [(ngModel)]="owner.dni" type="text" class="form-control" id="dni" placeholder="Ingresar DNI">
-    <label for="description">Nombre</label>
-    <input [(ngModel)]="owner.name" type="text" class="form-control" id="description" placeholder="Ingresar Nombre">
+    <input
+      [(ngModel)]="owner.dni"
+      type="text"
+      name="dni"
+      class="form-control"
+      id="dni"
+      placeholder="Ingresar DNI"
+      required
+    />
+    <label for="name">Nombre</label>
+    <input
+      [(ngModel)]="owner.name"
+      type="text"
+      name="name"
+      class="form-control"
+      id="name"
+      placeholder="Ingresar Nombre"
+      required
+    />
     <label for="lastname">Apellidos</label>
-    <input [(ngModel)]="owner.lastname" type="text" class="form-control" id="lastname" placeholder="Ingresar Apellidos">
+    <input
+      [(ngModel)]="owner.lastname"
+      type="text"
+      name="lastname"
+      class="form-control"
+      id="lastname"
+      placeholder="Ingresar Apellidos"
+      required
+    />
     <label for="address">Direccion</label>
-    <input [(ngModel)]="owner.address" type="text" class="form-control" id="address" placeholder="Ingresar Dirección">
+    <input
+      [(ngModel)]="owner.address"
+      type="text"
+      name="address"
+      class="form-control"
+      id="address"
+      placeholder="Ingresar Dirección"
+      required
+    />
     <label for="telephone">Teléfono</label>
-    <input [(ngModel)]="owner.telephone" type="text" class="form-control" id="telephone" placeholder="Ingresar Teléfono">
+    <input
+      [(ngModel)]="owner.telephone"
+      type="text"
+      name="telephone"
+      class="form-control"
+      id="telephone"
+      placeholder="Ingresar Teléfono"
+      required
+    />
     <label for="city">Ciudad</label>
-    <input [(ngModel)]="owner.city" type="text" class="form-control" id="city" placeholder="Ingresar Ciudad">
+    <input
+      [(ngModel)]="owner.city"
+      type="text"
+      name="city"
+      class="form-control"
+      id="city"
+      placeholder="Ingresar Ciudad"
+      required
+    />
+    <br />
+    <button
+      type="submit"
+      block="true"
+      class="btn btn-primary"
+      [disabled]="!ownerForm.valid"
+    >
+      Guardar
+    </button>
   </div>
-  <button (click)="saveOwner()" type="submit" class="btn btn-primary">Guardar</button>
-</div>
+</form>

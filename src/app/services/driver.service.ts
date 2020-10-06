@@ -6,7 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DriverService {
-
+/**
+ * Conexiones al API del conductor
+ */
   API_ENDPOINT = 'http://127.0.0.1:8000/api';
   constructor(private httpClient:HttpClient) {   }
   get(){

@@ -11,6 +11,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './formvehicle.component.html',
   styleUrls: ['./formvehicle.component.css']
 })
+/**
+ * Edita o guarda vehiculos con su propietario, conductor y tipo
+ */
 export class FormvehicleComponent implements OnInit {
 
   vehicle: Vehicle = {
@@ -21,54 +24,57 @@ export class FormvehicleComponent implements OnInit {
     driver_id: null,
     kind_vehicle_id: null
   };
-  id:any;
+  id: any;
   editar: boolean = false;
   vehicles: Vehicle[];
   owners: Owner[];
   drivers: Driver[];
   kindVehicles: kindVehicles[];
-  constructor(private vehicleService: VehicleService, private activatedRoute:ActivatedRoute,
+  constructor(private vehicleService: VehicleService, private activatedRoute: ActivatedRoute,
     private router: Router,) {
     this.id = this.activatedRoute.snapshot.params['id'];
-    if(this.id){
+    if (this.id) {
       this.editar = true;
-      this.vehicleService.get().subscribe((data: Vehicle[])=>{
-        this.vehicles=data;
-        this.vehicle=this.vehicles.find((m)=>{return m.id == this.id});
+      this.vehicleService.get().subscribe((data: Vehicle[]) => {
+        this.vehicles = data;
+        this.vehicle = this.vehicles.find((m) => { return m.id == this.id });
         console.log(this.vehicle);
       });
-    }else{
+    } else {
       this.editar = false;
     }
-    this.vehicleService.getOwner().subscribe((data:Owner[])=>{
-      this.owners=data;
+    this.vehicleService.getOwner().subscribe((data: Owner[]) => {
+      this.owners = data;
     });
-    this.vehicleService.getDriver().subscribe((data:Driver[])=>{
-      this.drivers=data;
+    this.vehicleService.getDriver().subscribe((data: Driver[]) => {
+      this.drivers = data;
     });
-    this.vehicleService.getKindVehicle().subscribe((data: kindVehicles[])=>{
-      this.kindVehicles=data;
+    this.vehicleService.getKindVehicle().subscribe((data: kindVehicles[]) => {
+      this.kindVehicles = data;
     });
-   }
+  }
 
   ngOnInit() {
   }
-  saveVehicle(){
-    
-    if(this.editar){
-      this.vehicleService.put(this.vehicle).subscribe((data)=>{
+  /**
+   * Guarda o modifica el vehículo
+   */
+  saveVehicle() {
+
+    if (this.editar) {
+      this.vehicleService.put(this.vehicle).subscribe((data) => {
         alert('Vehiculo Editado');
         this.router.navigateByUrl('/vehicle');
-      },(error)=>{
+      }, (error) => {
         console.log(error);
         alert('error!');
       });
-    }else{
-      this.vehicleService.save(this.vehicle).subscribe((data)=>{
+    } else {
+      this.vehicleService.save(this.vehicle).subscribe((data) => {
         alert('Vehiculo Guardado');
         this.router.navigateByUrl('/vehicle');
         console.log(data);
-      },(error)=>{
+      }, (error) => {
         console.log(error);
         alert('error!');
       });

@@ -20,7 +20,7 @@
         <td>{{vehicle.driver.name}}</td>
         <td>{{vehicle.kind_vehicle.name}}</td>
         <td><a class="btn btn-info btn-sm dis" routerLink="/vehicle/{{vehicle.id}}">Ver Informe</a>
-            <a class="btn btn-primary btn-sm dis" routerLink="/formvehicle/{{vehicle.id}}">Editar</a>
+          <a class="btn btn-primary btn-sm dis" routerLink="/formvehicle/{{vehicle.id}}">Editar</a>
             <a class="btn btn-primary btn-sm btn-danger dis" (click)="delete(vehicle.id)">Eliminar</a>
         </td>
       </tr>
@@ -32,15 +32,15 @@
   </div>
 </div>
 <div *ngIf="only">
-  <h1>Informe del Vehiculo</h1>
+  <h2 style="color: #243c64">Informe del Vehiculo</h2>
   <div class="prop">Placa del Vehículo:</div>
 <p>{{vehicle.plate}}</p>
 <div class="prop">Marca del Vehículo:</div>
 <p>{{vehicle.mark}}</p>
 <div class="prop">Nombre del Conductor:</div>
-<p>{{vehicle.driver.name}} {{vehicle.driver.lastname}}</p>
+<p>{{vehicle.driver.name}}</p>
 <div class="prop">Nombre del Propietario:</div>
-<p>{{vehicle.owner.name}} {{vehicle.owner.lastname}}</p>
+<p>{{vehicle.owner.name}}</p>
 
   
 </div>

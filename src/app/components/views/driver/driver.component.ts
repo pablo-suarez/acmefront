@@ -7,32 +7,39 @@ import { Driver } from 'src/app/interfaces/driver';
   templateUrl: './driver.component.html',
   styleUrls: ['./driver.component.css']
 })
+/**
+ * Mostrar lista de conductores guardados
+ */
 export class DriverComponent implements OnInit {
 
   drivers: Driver[];
-  constructor(private driverService: DriverService)
-    {
-      this.getDrivers();
-     }
-
-  getDrivers(){
-      this.driverService.get().subscribe((data: Driver[])=>{
-        this.drivers = data;
-      },(error)=>{
-        console.log(error);
-        alert('Hubo un error');
-      });
-     }
+  constructor(private driverService: DriverService) {
+    this.getDrivers();
+  }
+  /**
+   * Obtiene todos los conductores
+   */
+  getDrivers() {
+    this.driverService.get().subscribe((data: Driver[]) => {
+      this.drivers = data;
+    }, (error) => {
+      console.log(error);
+      alert('Hubo un error');
+    });
+  }
   ngOnInit() {
   }
-  delete(id){
-    if(confirm('Seguro que deseas eliminar Conductor ?')){
+  /**
+   * 
+   * @param id identificador del conductor a borrar
+   */
+  delete(id) {
+    if (confirm('Seguro que deseas eliminar Conductor ?')) {
 
-      this.driverService.delete(id).subscribe((data)=>{
+      this.driverService.delete(id).subscribe((data) => {
         alert('Eliminado con éxito');
-        console.log(data);
         this.getDrivers();
-      },(error)=>{
+      }, (error) => {
         alert('Hubo un error');
         console.log(error);
       });
